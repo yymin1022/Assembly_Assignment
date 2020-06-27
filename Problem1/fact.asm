@@ -26,7 +26,7 @@ L1:
 	push eax
 	call Factorial
 
-ReturnFace:
+ReturnFact:
 	mov ebx, [ebp + 8]
 	mul ebx
 
