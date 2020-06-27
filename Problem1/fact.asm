@@ -4,7 +4,7 @@ INCLUDE Irvine32.inc
 .code
 
 main PROC
-		push 5
+		push 4
 		call Factorial
 		call WriteDec
 		call Crlf

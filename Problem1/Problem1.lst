@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.26.28805.0	    06/26/20 20:08:02
+Microsoft (R) Macro Assembler Version 14.26.28806.0	    06/27/20 13:43:46
 fact.asm						     Page 1 - 1
 
 
@@ -25,7 +25,7 @@ fact.asm						     Page 1 - 1
  00000000			.code
 
  00000000			main PROC
- 00000000  6A 05				push 5
+ 00000000  6A 04				push 4
  00000002  E8 00000011				call Factorial
  00000007  E8 00000000 E			call WriteDec
  0000000C  E8 00000000 E			call Crlf
@@ -58,7 +58,7 @@ fact.asm						     Page 1 - 1
  0000003A			Factorial ENDP
 
 				END main
-Microsoft (R) Macro Assembler Version 14.26.28805.0	    06/26/20 20:08:02
+Microsoft (R) Macro Assembler Version 14.26.28806.0	    06/27/20 13:43:46
 fact.asm						     Symbols 2 - 1
 
 
