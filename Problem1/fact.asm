@@ -26,9 +26,6 @@ L1:
 	push eax                 ; Factorial(n - 1)
 	call Factorial
 
-: Instructions from this point on execute when
-: Each Recursive Call returns.
-
 ReturnFact:
 	mov ebx, [ebp + 8]  ; get n
 	mul ebx                   ; ax = ax * bx

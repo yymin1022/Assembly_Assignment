@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.26.28806.0	    06/27/20 15:25:03
+Microsoft (R) Macro Assembler Version 14.26.28806.0	    06/29/20 08:46:52
 fact.asm						     Page 1 - 1
 
 
@@ -25,9 +25,9 @@ fact.asm						     Page 1 - 1
  00000000			.code
 
  00000000			main PROC
- 00000000  6A 04				push 4
- 00000002  E8 00000011				call Factorial
- 00000007  E8 00000000 E			call WriteDec
+ 00000000  6A 04				push 4               ; Calculate 5 Factorial
+ 00000002  E8 00000011				call Factorial       ; Calculate Factorial(eax)
+ 00000007  E8 00000000 E			call WriteDec       ; Show Result
  0000000C  E8 00000000 E			call Crlf
 						exit
 
@@ -36,29 +36,29 @@ fact.asm						     Page 1 - 1
  00000018			Factorial PROC
  00000018  55				push ebp
  00000019  8B EC			mov ebp, esp
- 0000001B  8B 45 08			mov eax, [ebp + 8]
- 0000001E  83 F8 00			cmp eax, 0
- 00000021  77 07			ja L1
- 00000023  B8 00000001			mov eax, 1
+ 0000001B  8B 45 08			mov eax, [ebp + 8]  ; Get n
+ 0000001E  83 F8 00			cmp eax, 0              ; is n < 0 ?
+ 00000021  77 07		 	ja L1                       ; true -> Continue
+ 00000023  B8 00000001			mov eax, 1              ; false -> return 1
  00000028  EB 0C			jmp L2
 
  0000002A			L1:
  0000002A  48				dec eax
- 0000002B  50				push eax
+ 0000002B  50				push eax                 ; Factorial(n - 1)
  0000002C  E8 FFFFFFE7			call Factorial
 
  00000031			ReturnFact:
- 00000031  8B 5D 08			mov ebx, [ebp + 8]
- 00000034  F7 E3			mul ebx
+ 00000031  8B 5D 08			mov ebx, [ebp + 8]  ; get n
+ 00000034  F7 E3			mul ebx                   ; ax = ax * bx
 
  00000036			L2:
- 00000036  5D				pop ebp
- 00000037  C2 0004			ret 4
+ 00000036  5D				pop ebp                  ; return EAX
+ 00000037  C2 0004			ret 4                        ; Clean up Stack
 
  0000003A			Factorial ENDP
 
 				END main
-Microsoft (R) Macro Assembler Version 14.26.28806.0	    06/27/20 15:25:03
+Microsoft (R) Macro Assembler Version 14.26.28806.0	    06/29/20 08:46:52
 fact.asm						     Symbols 2 - 1
 
 
