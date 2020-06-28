@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.26.28806.0	    06/27/20 15:25:03
+Microsoft (R) Macro Assembler Version 14.26.28806.0	    06/28/20 23:10:39
 fact.asm						     Page 1 - 1
 
 
@@ -38,27 +38,24 @@ fact.asm						     Page 1 - 1
  00000019  8B EC			mov ebp, esp
  0000001B  8B 45 08			mov eax, [ebp + 8]
  0000001E  83 F8 00			cmp eax, 0
- 00000021  77 07			ja L1
+ 00000021  77 07		 	ja L1
  00000023  B8 00000001			mov eax, 1
- 00000028  EB 0C			jmp L2
+ 00000028  EB 07			jmp L2
 
  0000002A			L1:
  0000002A  48				dec eax
  0000002B  50				push eax
  0000002C  E8 FFFFFFE7			call Factorial
 
- 00000031			ReturnFact:
- 00000031  8B 5D 08			mov ebx, [ebp + 8]
- 00000034  F7 E3			mul ebx
 
- 00000036			L2:
- 00000036  5D				pop ebp
- 00000037  C2 0004			ret 4
+ 00000031			L2:
+ 00000031  5D				pop ebp
+ 00000032  C2 0004			ret 4
 
- 0000003A			Factorial ENDP
+ 00000035			Factorial ENDP
 
 				END main
-Microsoft (R) Macro Assembler Version 14.26.28806.0	    06/27/20 15:25:03
+Microsoft (R) Macro Assembler Version 14.26.28806.0	    06/28/20 23:10:39
 fact.asm						     Symbols 2 - 1
 
 
@@ -153,7 +150,7 @@ Segments and Groups:
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
 _DATA  . . . . . . . . . . . . .	32 Bit	 00000000 Para	  Public  'DATA'	
-_TEXT  . . . . . . . . . . . . .	32 Bit	 0000003A Para	  Public  'CODE'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000035 Para	  Public  'CODE'	
 
 
 Procedures, parameters, and locals:
@@ -170,10 +167,9 @@ Delay  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External
 DumpMem  . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 DumpRegs . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 ExitProcess  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
-Factorial  . . . . . . . . . . .	P Near	 00000018 _TEXT	Length= 00000022 Public STDCALL
+Factorial  . . . . . . . . . . .	P Near	 00000018 _TEXT	Length= 0000001D Public STDCALL
   L1 . . . . . . . . . . . . . .	L Near	 0000002A _TEXT	
-  ReturnFact . . . . . . . . . .	L Near	 00000031 _TEXT	
-  L2 . . . . . . . . . . . . . .	L Near	 00000036 _TEXT	
+  L2 . . . . . . . . . . . . . .	L Near	 00000031 _TEXT	
 FileTimeToDosDateTime  . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 FileTimeToSystemTime . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 FlushConsoleInputBuffer  . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
